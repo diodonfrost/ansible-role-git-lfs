@@ -1,0 +1,9 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+  - name: Git should be functionnal
+    command: git version
+
+  - name: Git lfs should be functionnal
+    command: git lfs version
