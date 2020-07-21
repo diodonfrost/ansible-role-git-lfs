@@ -9,7 +9,7 @@
   apt_key:
     url: https://packagecloud.io/github/git-lfs/gpgkey
     state: present
-  when: ansible_pkg_mgr == "apt" 
+  when: ansible_pkg_mgr == "apt"
 
 - name: Debian/Ubuntu | Git LFS APT repository
   apt_repository:
