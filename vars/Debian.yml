@@ -1,0 +1,6 @@
+---
+package_requirements:
+  - apt-transport-https
+  - gnupg
+
+git_lfs_package: git-lfs

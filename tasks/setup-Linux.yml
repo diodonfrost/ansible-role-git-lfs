@@ -1,0 +1,55 @@
+---
+- name: Linux | Install package requirements
+  package:
+    name: "{{ package_requirements }}"
+    state: present
+  when: package_requirements is defined
+
+- name: Debian/Ubuntu | Git LFS APT key
+  apt_key:
+    url: https://packagecloud.io/github/git-lfs/gpgkey
+    state: present
+  when: ansible_pkg_mgr == "apt" 
+
+- name: Debian/Ubuntu | Git LFS APT repository
+  apt_repository:
+    filename: github_git-lfs
+    repo: "deb https://packagecloud.io/github/git-lfs/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} main"
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: Debian/Ubuntu | Git LFS SRC repository
+  apt_repository:
+    filename: github_git-lfs
+    repo: "deb-src https://packagecloud.io/github/git-lfs/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} main"
+    state: present
+  when: ansible_pkg_mgr == "apt"
+
+- name: RedHat | Git LFS RPM repository
+  yum_repository:
+    name: github_git-lfs
+    description: Git LFS repository
+    baseurl: "https://packagecloud.io/github/git-lfs/el/{{ ansible_distribution_major_version }}/$basearch"
+    gpgkey: https://packagecloud.io/github/git-lfs/gpgkey
+    gpgcheck: no
+    repo_gpgcheck: yes
+    enabled: yes
+    state: present
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution != "Amazon"
+
+- name: Linux | Install Git LFS
+  package:
+    name: "{{ git_lfs_package }}"
+    state: present
+
+- name: Linux | Check Git LFS initialization
+  git_config:
+    list_all: true
+    scope: global
+  register: git_global_config
+
+- name: Linux | Setup Git LFS
+  command: git lfs install
+  when: "'filter.lfs.required' not in git_global_config.config_values"

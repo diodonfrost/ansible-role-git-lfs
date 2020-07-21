@@ -1,2 +1,8 @@
 ---
 # tasks file for ansible-role-git-lfs
+
+- name: Include OS specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install Git LFS
+  include_tasks: "setup-{{ ansible_system }}.yml"
