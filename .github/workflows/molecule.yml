@@ -31,6 +31,7 @@ jobs:
           - debian-10
           - debian-9
           - debian-8
+          - opensuse-15
           - oraclelinux-8
           - oraclelinux-7
           - amazonlinux-2
