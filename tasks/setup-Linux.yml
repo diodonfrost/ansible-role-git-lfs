@@ -28,16 +28,27 @@
 - name: RedHat | Git LFS RPM repository
   yum_repository:
     name: github_git-lfs
-    description: Git LFS repository
+    description: github_git-lfs
     baseurl: "https://packagecloud.io/github/git-lfs/el/{{ ansible_distribution_major_version }}/$basearch"
     gpgkey: https://packagecloud.io/github/git-lfs/gpgkey
     gpgcheck: no
     repo_gpgcheck: yes
+    sslverify: yes
+    sslcacert: "/etc/pki/tls/certs/ca-bundle.crt"
+    metadata_expire: "300"
     enabled: yes
     state: present
+  register: yum_repository_output
   when:
     - ansible_os_family == "RedHat"
     - ansible_distribution != "Amazon"
+
+# This action is required on RedHat 6 system
+- name: RedHat | yum makecache
+  command: yum -q makecache -y --disablerepo='*' --enablerepo='github_git-lfs'
+  args:
+    warn: no
+  when: yum_repository_output.changed
 
 - name: Linux | Install Git LFS
   package:

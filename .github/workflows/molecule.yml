@@ -18,6 +18,7 @@ jobs:
           - alpine-rolling
           - centos-8
           - centos-7
+          - centos-6
           - fedora-32
           - fedora-31
           - fedora-30
@@ -35,6 +36,7 @@ jobs:
           - opensuse-15
           - oraclelinux-8
           - oraclelinux-7
+          - oraclelinux-6
           - amazonlinux-2
 
     steps:
