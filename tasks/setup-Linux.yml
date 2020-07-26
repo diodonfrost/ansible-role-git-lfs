@@ -1,4 +1,9 @@
 ---
+- name: Gentoo | Sync repositories
+  portage:
+    sync: web
+  when: ansible_os_family == "Gentoo"
+
 - name: Linux | Install package requirements
   package:
     name: "{{ package_requirements }}"
