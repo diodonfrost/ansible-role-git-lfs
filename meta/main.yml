@@ -23,10 +23,9 @@ galaxy_info:
         - 28
     - name: Debian
       versions:
+        - buster
         - stretch
         - jessie
-        - wheezy
-        - squeeze
     - name: Ubuntu
       versions:
         - bionic
@@ -37,20 +36,13 @@ galaxy_info:
       versions:
         - 2017.12
         - 2016.03
-        - 2013.09
-    - name: opensuse
-      versions:
-        - 13.2
-    - name: SLES
-      versions:
-        - 15
     - name: ArchLinux
       versions:
         - any
-    - name: Gentoo
+    - name: Alpine
       versions:
         - any
-    - name: ClearLinux
+    - name: Gentoo
       versions:
         - any
 
