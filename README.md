@@ -1,7 +1,7 @@
 # ansible-role-git-lfs
 
 [![Build Status](https://travis-ci.com/diodonfrost/ansible-role-git-lfs.svg?branch=master)](https://travis-ci.com/diodonfrost/ansible-role-git-lfs)
-[![CI](https://github.com/diodonfrost/ansible-role-git-lfs/workflows/CI/badge.svg)](https://github.com/diodonfrost/ansible-role-git-lfs/actions)
+[![Molecule](https://github.com/diodonfrost/ansible-role-git-lfs/workflows/Molecule/badge.svg)](https://github.com/diodonfrost/ansible-role-git-lfs/actions)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.git-lfs-660198.svg)](https://galaxy.ansible.com/diodonfrost/git-lfs)
 
 This role provide a compliance for install git-lfs on your target host.
