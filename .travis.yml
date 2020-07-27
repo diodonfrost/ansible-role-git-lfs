@@ -1,13 +1,11 @@
 ---
-dist: xenial
+dist: bionic
 services:
   - docker
 
 language: python
 python:
-  - "3.8"
-virtualenv:
-  system_site_packages: true
+  - "3.7"
 
 env:
   - distribution: alpine-rolling
@@ -36,11 +34,13 @@ env:
   - distribution: ubuntu-20.04
 
 before_install:
-  - 'sudo docker pull diodonfrost/${distribution}-ansible:latest'
-  - 'sudo pip install molecule==3.0.2 ansible==2.9.4'
+  - 'docker pull diodonfrost/${distribution}-ansible:latest'
+
+install:
+  - 'pip install ansible==2.9.4 molecule==3.0.2 docker==4.2.2'
 
 script:
-  - 'sudo distribution=${distribution} molecule test'
+  - 'distribution=${distribution} molecule test'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
