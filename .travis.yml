@@ -1,0 +1,43 @@
+---
+dist: xenial
+services:
+  - docker
+
+python:
+  - "3.8"
+
+env:
+  - distribution: alpine-rolling
+  - distribution: amazonlinux-2
+  - distribution: archlinux-rolling
+  - distribution: centos-6
+  - distribution: centos-7
+  - distribution: centos-8
+  - distribution: debian-10
+  - distribution: debian-8
+  - distribution: debian-9
+  - distribution: fedora-26
+  - distribution: fedora-27
+  - distribution: fedora-28
+  - distribution: fedora-29
+  - distribution: fedora-30
+  - distribution: fedora-31
+  - distribution: fedora-32
+  - distribution: opensuse-15
+  - distribution: oraclelinux-6
+  - distribution: oraclelinux-7
+  - distribution: oraclelinux-8
+  - distribution: ubuntu-14.04
+  - distribution: ubuntu-16.04
+  - distribution: ubuntu-18.04
+  - distribution: ubuntu-20.04
+
+before_install:
+  - 'sudo docker pull diodonfrost/${distribution}-ansible:latest'
+  - 'sudo python3 -m pip install molecule==3.0.2 ansible==2.9.4'
+
+script:
+  - 'sudo distribution=${distribution} molecule test'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
