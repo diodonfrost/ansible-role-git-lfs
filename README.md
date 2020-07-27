@@ -2,14 +2,14 @@
 
 [![Build Status](https://travis-ci.com/diodonfrost/ansible-role-git-lfs.svg?branch=master)](https://travis-ci.com/diodonfrost/ansible-role-git-lfs)
 [![Molecule](https://github.com/diodonfrost/ansible-role-git-lfs/workflows/Molecule/badge.svg)](https://github.com/diodonfrost/ansible-role-git-lfs/actions)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.git-lfs-660198.svg)](https://galaxy.ansible.com/diodonfrost/git-lfs)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-diodonfrost.git_lfs-660198.svg)](https://galaxy.ansible.com/diodonfrost/git-lfs)
 
 This role provide a compliance for install git-lfs on your target host.
 
 ## Requirements
 
 This role was developed using Ansible 2.5 Backwards compatibility is not guaranteed.
-Use `ansible-galaxy install diodonfrost.git-lfs` to install the role on your system.
+Use `ansible-galaxy install diodonfrost.git_lfs` to install the role on your system.
 *   Ansible >= 2.8
 *   Python >= 2.7
 
@@ -67,14 +67,14 @@ None
 
 ## Example Playbook
 
-This is a sample playbook file for deploying the Ansible Galaxy diodonfrost.git-lfs role in a localhost and installing the latest version of git-lfs.
+This is a sample playbook file for deploying the Ansible Galaxy diodonfrost.git_lfs role in a localhost and installing the latest version of git-lfs.
 
 ```yaml
 ---
 - hosts: localhost
   become: true
   roles:
-    - role: diodonfrost.git-lfs
+    - role: diodonfrost.git_lfs
 ```
 
 ## Local Testing

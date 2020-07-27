@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: git-lfs
+  role_name: git_lfs
   author: diodonfrost
   company: diodonfrost
   description:  Ansible role for install git lfs
@@ -15,7 +15,6 @@ galaxy_info:
         - 6
     - name: Fedora
       versions:
-        - 33
         - 32
         - 31
         - 30
