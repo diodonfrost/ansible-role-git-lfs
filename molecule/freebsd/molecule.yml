@@ -1,0 +1,10 @@
+---
+driver:
+  name: vagrant
+  provider:
+    name: VBox
+platforms:
+  - name: bsd
+    box: generic/freebsd12
+    memory: 1024
+    cpus: 2
