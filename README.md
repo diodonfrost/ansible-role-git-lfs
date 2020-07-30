@@ -59,6 +59,17 @@ Supported platforms:
 - name: Gentoo
   versions:
     - stage3
+- name: FreeBSD
+  versions:
+    - 11.0
+    - 12.0
+- name: OpenBSD
+  versions:
+    - 6.0
+- name: MacOSX
+  versions:
+    - 10.14
+    - 10.15
 ```
 
 ## Dependencies
@@ -101,6 +112,16 @@ distribution=centos-7 molecule converge
 
 # Launch tests on centos-7 instance
 distribution=centos-7 molecule verify
+```
+
+### Testing with Vagrant and Virtualbox
+
+```shell
+# Test ansible role with FreeBSD
+molecule test -s freebsd
+
+# Test ansible role with OpenBSD
+molecule test -s openbsd
 ```
 
 ## License
