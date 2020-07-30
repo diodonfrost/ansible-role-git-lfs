@@ -4,7 +4,8 @@ driver:
   provider:
     name: VBox
 platforms:
-  - name: bsd
+  - name: freebsd
     box: generic/freebsd12
+    box_version: "3.0.18"
     memory: 1024
     cpus: 2
