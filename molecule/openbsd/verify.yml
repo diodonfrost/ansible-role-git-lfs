@@ -1,0 +1,20 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Git should be functionnal
+      command: git version
+      ignore_errors: yes
+      register: git_result
+
+    - name: Git lfs should be functionnal
+      command: git lfs version
+      ignore_errors: yes
+      register: git_lfs_result
+
+    - name: Verify commands outputs
+      assert:
+        that:
+          - git_result.rc == 0
+          - git_lfs_result.rc == 0
+        success_msg: "All tests passed"

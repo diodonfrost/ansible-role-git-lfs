@@ -1,0 +1,15 @@
+---
+- name: OpenBSD | Install Git LFS
+  package:
+    name: "{{ git_lfs_package }}"
+    state: present
+
+- name: OpenBSD | Check Git LFS initialization
+  git_config:
+    list_all: true
+    scope: global
+  register: git_global_config
+
+- name: OpenBSD | Setup Git LFS
+  command: git lfs install
+  when: "'filter.lfs.required' not in git_global_config.config_values"
