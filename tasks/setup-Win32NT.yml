@@ -1,0 +1,32 @@
+---
+- name: Windows | Download Git LFS
+  win_get_url:
+    url: "{{ git_lfs_package }}"
+    dest: '{{ ansible_env.TEMP }}\git-lfs-installer.exe'
+
+# Currently win_package is not idempotent with git-lfs.exe
+- name: Windows | Check Git LFS installation
+  win_command: git lfs env
+  ignore_errors: yes
+  changed_when: false
+  failed_when: false
+  register: git_config_install
+
+- name: Windows | Install Git LFS
+  win_package:
+    path: '{{ ansible_env.TEMP }}\git-lfs-installer.exe'
+    product_id: git-lfs
+    arguments: '/verysilent /suppressmsgboxes /norestart'
+    state: present
+  when: git_config_install.rc != 0
+
+- name: Windows | Check Git LFS initialization
+  win_command: git config --global --list
+  ignore_errors: yes
+  changed_when: false
+  failed_when: false
+  register: git_global_config
+
+- name: Windows | Setup Git LFS
+  win_command: git lfs install
+  when: "'filter.lfs.required' not in git_global_config.stdout_lines | join(' ')"
