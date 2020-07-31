@@ -1,7 +1,16 @@
 ---
+- name: Windows | Get the latest version of Git LFS
+  win_uri:
+    url: https://api.github.com/repos/git-lfs/git-lfs/releases/latest
+    return_content: yes
+  register: git_lfs_version
+
+- set_fact:
+    git_lfs_latest_version: "{{ git_lfs_version['json']['tag_name'] }}"
+
 - name: Windows | Download Git LFS
   win_get_url:
-    url: "{{ git_lfs_package }}"
+    url: "https://github.com/git-lfs/git-lfs/releases/download/{{ git_lfs_latest_version }}/git-lfs-windows-{{ git_lfs_latest_version }}.exe"
     dest: '{{ ansible_env.TEMP }}\git-lfs-installer.exe'
 
 # Currently win_package is not idempotent with git-lfs.exe
