@@ -70,6 +70,12 @@ Supported platforms:
   versions:
     - 10.14
     - 10.15
+- name: Windows
+  versions:
+    - 2016
+    - 2012R2
+    - 2008R2
+    - 8.1
 ```
 
 ## Dependencies
@@ -122,6 +128,9 @@ molecule test -s freebsd
 
 # Test ansible role with OpenBSD
 molecule test -s openbsd
+
+# Test ansible role with Windows
+molecule test -s windows
 ```
 
 ## License
