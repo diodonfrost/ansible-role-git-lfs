@@ -31,6 +31,8 @@ jobs:
           - fedora-31
           - fedora-32
           - opensuse-15
+          - opensuse-leap
+          - opensuse-tumbleweed
           - oraclelinux-6
           - oraclelinux-7
           - oraclelinux-8

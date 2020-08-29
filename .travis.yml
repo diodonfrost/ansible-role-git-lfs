@@ -25,6 +25,8 @@ env:
   - distribution: fedora-31
   - distribution: fedora-32
   - distribution: opensuse-15
+  - distribution: opensuse-leap
+  - distribution: opensuse-tumbleweed
   - distribution: oraclelinux-6
   - distribution: oraclelinux-7
   - distribution: oraclelinux-8
