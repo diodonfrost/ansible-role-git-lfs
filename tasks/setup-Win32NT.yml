@@ -5,7 +5,8 @@
     return_content: yes
   register: git_lfs_version
 
-- set_fact:
+- name: Windows | Get git lfs latest version
+  set_fact:
     git_lfs_latest_version: "{{ git_lfs_version['json']['tag_name'] }}"
 
 - name: Windows | Download Git LFS
