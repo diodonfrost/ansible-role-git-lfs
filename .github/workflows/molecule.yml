@@ -8,38 +8,38 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.distribution }}
+    name: ${{ matrix.image }}
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
-        distribution:
-          - alpine-rolling
-          - amazonlinux-2
-          - archlinux-rolling
-          - centos-6
-          - centos-7
-          - centos-8
-          - debian-10
-          - debian-8
-          - debian-9
-          - fedora-26
-          - fedora-27
-          - fedora-28
-          - fedora-29
-          - fedora-30
-          - fedora-31
-          - fedora-32
-          - opensuse-15
-          - opensuse-leap
-          - opensuse-tumbleweed
-          - oraclelinux-6
-          - oraclelinux-7
-          - oraclelinux-8
-          - ubuntu-14.04
-          - ubuntu-16.04
-          - ubuntu-18.04
-          - ubuntu-20.04
+        image:
+          - ansible-alpine:latest
+          - ansible-amazonlinux:2
+          - ansible-archlinux:latest
+          - ansible-centos:6
+          - ansible-centos:7
+          - ansible-centos:8
+          - ansible-debian:10
+          - ansible-debian:8
+          - ansible-debian:9
+          - ansible-fedora:26
+          - ansible-fedora:27
+          - ansible-fedora:28
+          - ansible-fedora:29
+          - ansible-fedora:30
+          - ansible-fedora:31
+          - ansible-fedora:32
+          - ansible-opensuse:15
+          - ansible-opensuse:leap
+          - ansible-opensuse:tumbleweed
+          - ansible-oraclelinux:6
+          - ansible-oraclelinux:7
+          - ansible-oraclelinux:8
+          - ansible-ubuntu:14.04
+          - ansible-ubuntu:16.04
+          - ansible-ubuntu:18.04
+          - ansible-ubuntu:20.04
 
     steps:
       - name: Checkout repository
@@ -57,4 +57,4 @@ jobs:
 
       - name: Test Ansible role
         run: |
-          distribution=${{ matrix.distribution }} molecule test
+          image=${{ matrix.image }} molecule test
