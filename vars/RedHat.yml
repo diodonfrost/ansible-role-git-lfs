@@ -1,5 +1,6 @@
 ---
 package_requirements:
+  - yum
   - yum-utils
 
 git_lfs_package: git-lfs
