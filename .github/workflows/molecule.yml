@@ -16,7 +16,8 @@ jobs:
         image:
           - alpine:latest
           - amazonlinux:2
-          - archlinux:latest
+          # https://bugs.archlinux.org/task/69563
+          #- archlinux:latest
           - centos:6
           - centos:7
           - centos:8
