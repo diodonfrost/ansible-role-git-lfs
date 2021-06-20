@@ -31,6 +31,9 @@ jobs:
           - fedora:30
           - fedora:31
           - fedora:32
+          - fedora:33
+          - fedora:34
+          - fedora:35
           - opensuse:15
           - opensuse:leap
           - opensuse:tumbleweed
