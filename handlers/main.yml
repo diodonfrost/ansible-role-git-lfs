@@ -4,5 +4,3 @@
 # This action is required on RedHat 6 system
 - name: RedHat | yum makecache
   command: yum -q makecache -y --disablerepo='*' --enablerepo='github_git-lfs'
-  args:
-    warn: no
