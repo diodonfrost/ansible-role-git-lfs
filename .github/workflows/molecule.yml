@@ -29,7 +29,6 @@ jobs:
           - debian:10
           - oraclelinux:9
           - oraclelinux:8
-          - amazonlinux:2023
           - amazonlinux:2
           - opensuse:leap
           - archlinux:latest
