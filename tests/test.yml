@@ -1,5 +1,4 @@
 ---
 - hosts: localhost
-  remote_user: root
   roles:
-    - ansible-role-git-lfs
+    - diodonfrost.git_lfs
