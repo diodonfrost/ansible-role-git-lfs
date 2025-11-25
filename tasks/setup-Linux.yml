@@ -65,8 +65,7 @@
     state: present
 
 - name: Linux | Check Git LFS initialization
-  git_config:
-    list_all: true
+  community.general.git_config_info:
     scope: global
   register: git_global_config
 
