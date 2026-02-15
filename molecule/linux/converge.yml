@@ -2,7 +2,5 @@
 - name: Converge
   hosts: all
   become: true
-  tasks:
-    - name: "Include ansible-role-terraform"
-      include_role:
-        name: "ansible-role-git-lfs"
+  roles:
+    - role: diodonfrost.git_lfs

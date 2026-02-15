@@ -1,0 +1,8 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: OpenBSD | Install Ansible requirements
+      ansible.builtin.raw: pkg_add -z "python%3" unzip--

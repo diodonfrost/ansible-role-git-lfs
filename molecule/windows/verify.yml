@@ -2,18 +2,18 @@
 - name: Verify
   hosts: all
   tasks:
-    - name: Git should be functionnal
-      win_command: git version
-      ignore_errors: yes
+    - name: Windows | Git should be functional
+      ansible.windows.win_command: git version
       register: git_result
+      changed_when: false
 
-    - name: Git lfs should be functionnal
-      win_command: git lfs version
-      ignore_errors: yes
+    - name: Windows | Git lfs should be functional
+      ansible.windows.win_command: git lfs version
       register: git_lfs_result
+      changed_when: false
 
-    - name: Verify commands outputs
-      assert:
+    - name: Windows | Verify commands outputs
+      ansible.builtin.assert:
         that:
           - git_result.rc == 0
           - git_lfs_result.rc == 0

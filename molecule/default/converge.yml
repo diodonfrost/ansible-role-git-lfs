@@ -1,7 +1,5 @@
 ---
 - name: Converge
   hosts: all
-  tasks:
-    - name: "Include ansible-role-git-lfs"
-      include_role:
-        name: "ansible-role-git-lfs"
+  roles:
+    - role: diodonfrost.git_lfs

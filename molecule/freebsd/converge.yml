@@ -1,8 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  become: yes
-  tasks:
-    - name: "Include ansible-role-git-lfs"
-      include_role:
-        name: "ansible-role-git-lfs"
+  become: true
+  roles:
+    - role: diodonfrost.git_lfs

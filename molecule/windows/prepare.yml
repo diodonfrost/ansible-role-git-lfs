@@ -1,8 +1,8 @@
 ---
-- name: Converge
+- name: Prepare
   hosts: all
   tasks:
     - name: Windows | Install git
-      win_chocolatey:
+      ansible.windows.win_chocolatey:
         name: git
         state: present

@@ -2,18 +2,18 @@
 - name: Verify
   hosts: all
   tasks:
-    - name: Git should be functionnal
-      command: git version
-      ignore_errors: yes
+    - name: FreeBSD | Git should be functional
+      ansible.builtin.command: git version
       register: git_result
+      changed_when: false
 
-    - name: Git lfs should be functionnal
-      command: git lfs version
-      ignore_errors: yes
+    - name: FreeBSD | Git lfs should be functional
+      ansible.builtin.command: git lfs version
       register: git_lfs_result
+      changed_when: false
 
-    - name: Verify commands outputs
-      assert:
+    - name: FreeBSD | Verify commands outputs
+      ansible.builtin.assert:
         that:
           - git_result.rc == 0
           - git_lfs_result.rc == 0
