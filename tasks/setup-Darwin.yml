@@ -1,16 +1,16 @@
 ---
 - name: Darwin | Install Git LFS
-  homebrew:
+  community.general.homebrew:
     name: "{{ git_lfs_package }}"
     update_homebrew: yes
     state: present
 
 - name: Darwin | Check Git LFS initialization
-  git_config:
+  community.general.git_config:
     list_all: true
     scope: global
   register: git_global_config
 
 - name: Darwin | Setup Git LFS
-  command: git lfs install
+  ansible.builtin.command: git lfs install
   when: "'filter.lfs.required' not in git_global_config.config_values"
