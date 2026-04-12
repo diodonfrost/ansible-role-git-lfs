@@ -1,15 +1,14 @@
 ---
-- name: FreeBSD | Install Git LFS
+- name: Linux/Unix | Install Git LFS
   ansible.builtin.package:
     name: "{{ git_lfs_package }}"
     state: present
 
-- name: FreeBSD | Check Git LFS initialization
-  community.general.git_config:
-    list_all: true
+- name: Linux/Unix | Check Git LFS initialization
+  community.general.git_config_info:
     scope: global
   register: git_global_config
 
-- name: FreeBSD | Setup Git LFS
+- name: Linux/Unix | Setup Git LFS
   ansible.builtin.command: git lfs install
   when: "'filter.lfs.required' not in git_global_config.config_values"

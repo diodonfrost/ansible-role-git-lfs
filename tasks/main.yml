@@ -2,14 +2,15 @@
 # tasks file for ansible-role-git-lfs
 
 - name: Include OS specific variables.
-  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', var_files) }}"
   vars:
-    params:
-      files:
-        - "{{ ansible_os_family }}.yml"
-        - main.yml
-      paths:
-        - 'vars'
+    var_files:
+      - "vars/{{ ansible_facts['os_family'] }}.yml"
+      - "vars/main.yml"
 
 - name: Install Git LFS
-  ansible.builtin.include_tasks: "setup-{{ ansible_system }}.yml"
+  ansible.builtin.include_tasks: "{{ lookup('ansible.builtin.first_found', setup_files) }}"
+  vars:
+    setup_files:
+      - "tasks/setup-{{ ansible_facts['system'] }}.yml"
+      - "tasks/setup-Linux-Unix.yml"
