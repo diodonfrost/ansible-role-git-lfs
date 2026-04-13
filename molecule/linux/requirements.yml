@@ -1,3 +1,5 @@
 ---
 collections:
   - name: community.general
+roles:
+  - name: diodonfrost.update_package_manager_cache
