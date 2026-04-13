@@ -1,3 +1,12 @@
+---
 skip_list:
-  - '301'
-  - '303'
+  - command-instead-of-module
+  - no-changed-when
+
+exclude_paths:
+  - tests/
+  - .github/
+  - molecule/*/verify.yml
+  # ansible.windows collection is installed per-scenario at molecule time,
+  # not available in the lint environment.
+  - molecule/windows/prepare.yml
