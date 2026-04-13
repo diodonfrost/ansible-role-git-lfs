@@ -1,10 +1,23 @@
----
+exclude: 'CHANGELOG.md|tests'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-added-large-files
       - id: check-case-conflict
       - id: check-merge-conflict
+  - repo: local
+    hooks:
+      - id: ansible-lint
+        name: ansible-lint
+        entry: ansible-lint -v --force-color
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: yamllint
+        name: yamllint
+        entry: yamllint
+        language: system
+        types: [file, yaml]
